@@ -4,14 +4,31 @@
   "description": "Thinkful challenge",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --exit",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "chai-http": "^4.0.0",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
     "uuid": "^3.2.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rrogerthat/blog-api-challenge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rrogerthat/blog-api-challenge/issues"
+  },
+  "homepage": "https://github.com/rrogerthat/blog-api-challenge#readme"
 }
