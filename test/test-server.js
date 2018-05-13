@@ -2,7 +2,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 
 const {app, runServer, closeServer} = require('../server');
-
+console.log('app');
 const expect = chai.expect; 
 
 chai.use(chaiHttp);
@@ -50,6 +50,15 @@ describe('Blog posts', function() {
   });
 
   it('should update items on PUT', function() {
+
+    const updateData = {
+      title: 'Meditation',
+      content: 'Be in a Zen state',
+      author: 'John Doe',
+      publishDate: 'June 12, 2015'
+    };
+
+    return chai.request(app)
   	.get('/blog-posts')
   	.then(function(res) {
   		updateData.id = res.body[0].id;
@@ -57,7 +66,7 @@ describe('Blog posts', function() {
   		return chai.request(app)
           .put(`/blog-posts/${updateData.id}`)
           .send(updateData);
-  	});
+  	})
     .then(function(res) {
 		expect(res).to.have.status(204);
         expect(res.body).to.be.a('object');
