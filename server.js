@@ -9,6 +9,10 @@ app.use(morgan('common')); //log http layer
 
 app.use(express.static('public'));
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/views/index.html');
+});
+
 app.use('/blog-posts', blogPostRouter);
 
 // both runServer and closeServer need to access the same
